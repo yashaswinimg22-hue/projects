@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmer Mood Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>💻 Programmer Mood Detector</h1>
+
+        <div class="card">
+            <label>Bugs Found Today 🐛</label>
+            <input type="number" id="bugs" placeholder="Enter number of bugs">
+
+            <label>Cups of Coffee ☕</label>
+            <input type="number" id="coffee" placeholder="Enter coffee count">
+
+            <button onclick="detectMood()">
+                Detect My Mood
+            </button>
+
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script>
+function detectMood() {
+    let bugs = parseInt(document.getElementById("bugs").value);
+    let coffee = parseInt(document.getElementById("coffee").value);
+
+    let mood = "";
+
+    if (bugs > 10) {
+        mood = "😫 Frustrated Developer";
+    } else if (coffee > 5) {
+        mood = "☕ Over-Caffeinated Coder";
+    } else if (bugs <= 2 && coffee <= 2) {
+        mood = "😎 Productive Programmer";
+    } else {
+        mood = "🙂 Normal Coding Mood";
+    }
+
+    document.getElementById("result").innerHTML =
+        "<h2>" + mood + "</h2>";
+}
+</script>
+</body>
+</html>
